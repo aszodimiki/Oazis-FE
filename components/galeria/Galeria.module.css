@@ -1,0 +1,9 @@
+.list {
+    list-style: none;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, 250px);
+    gap: 15px;
+    width: 100%;
+    margin: 0 auto;
+}

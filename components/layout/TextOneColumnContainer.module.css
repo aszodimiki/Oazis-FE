@@ -1,0 +1,16 @@
+.container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 20px 0;
+    font-size: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .container{
+        grid-template-columns: [first] 100% ;
+        margin-top: 100px;
+    }
+
+}

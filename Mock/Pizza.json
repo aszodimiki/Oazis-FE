@@ -1,0 +1,44 @@
+[
+    {
+    "title": "Húsimádó",
+    "price": 1800,
+    "serialNumber": 7,
+    "ingredients": [
+    {
+    "title": "Hagyma"
+    },
+    {
+    "title": "Sonka"
+    }
+    ]
+    },
+    {
+    "title": "Vándor",
+    "price": 1700,
+    "serialNumber": 6,
+    "ingredients": [
+    {
+    "title": "Szalámi"
+    },
+    {
+    "title": "Sonka"
+    },
+    {
+    "title": "Hagyma"
+    }
+    ]
+    },
+    {
+    "title": "Songoku",
+    "price": 2200,
+    "serialNumber": 4,
+    "ingredients": [
+    {
+    "title": "Sonka"
+    },
+    {
+    "title": "Szalámi"
+    }
+    ]
+    }
+    ]

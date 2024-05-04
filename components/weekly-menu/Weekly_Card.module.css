@@ -1,0 +1,83 @@
+/* .box {
+    height: 170px;
+    border: solid 1px #000;
+    font-weight: 800;
+    border-radius: 10px;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin-bottom: 1em;
+    width: 300px;
+ } */
+ 
+
+ .box {
+  /* height: 170px;
+  border: solid 1px #000;
+  font-weight: 800;
+  border-radius: 10px;
+  margin-bottom: 1em;
+  width: 300px;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  break-inside: avoid;
+
+  position: relative; */
+
+  height: 170px;
+  border: solid 1px #000;
+  font-weight: 800;
+  border-radius: 10px;
+  margin-bottom: 1em;
+  width: 300px;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  break-inside: avoid;
+  margin: 10px;
+ }
+
+ /* .box::before{
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+ } */
+
+ .box::after{
+  /* content: "";
+	 display: block;
+	 position: absolute;
+	 left: 5px;
+	 right: 5px;
+	 top: 5px;
+	 bottom: 5px;
+   overflow: hidden; */
+ }
+
+ .date{
+  padding-top: 10px;
+  padding-left: 10px;
+  text-align: center;
+  margin-bottom: 15px;
+ }
+
+.box .food{
+  margin-top: 10px;
+  text-align: left;
+  list-style-position: inside;
+  padding-left: 10px;
+}
+
+/* @media screen and (max-width: 1024px) {
+  .box {
+      margin-bottom: 10px;
+  }
+} */
+
+.decoded {
+  overflow-wrap: break-word;
+  padding-left: 30px;
+}

@@ -1,0 +1,15 @@
+.main{
+    background: white  url("../../public/oazis_bg.png") top fixed no-repeat !important;
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    margin-top: 3rem;
+    margin-bottom: 0rem;
+    margin-right: auto;
+    margin-left: auto;
+    width: 90%;
+    max-width: 80rem;
+    min-height: calc(100vh - 178px - 9rem);
+}
