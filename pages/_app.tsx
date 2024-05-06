@@ -11,7 +11,6 @@ interface Datas {
 
 export default function App({ Component, pageProps }: AppProps, {footerTexts}:{footerTexts: FooterTexts}){
   
-  
   return <Layout>
             <ErrorBoundary>
               <Component footerTexts={footerTexts} {...pageProps} />
@@ -21,10 +20,6 @@ export default function App({ Component, pageProps }: AppProps, {footerTexts}:{f
 
 export async function getStaticProps() {
   const data = await getFooterTexts();
- 
-  console.log(data);
-  console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAaa");
-  
   
   return {
       props: {footerTexts: data},

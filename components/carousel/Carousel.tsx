@@ -28,12 +28,10 @@ export default function Carousel({carouselModels}:{carouselModels: CarouselModel
 
     return(
         <div className={classes.main}>
-            
             <div className={classes.image_container}>
                 <button className={`${classes.prev} ${classes.button}`} onClick={() => setIndex(count => loop(count-1))}>&#8678;</button>
                 <button className={`${classes.next} ${classes.button}`} onClick={() => setIndex(count => loop(count+1))}>&#8680;</button>
                     <Image className={classes.image} src={'https://localhost:44370'+carousels[index].backgroundPath} fill={true} alt='Carousel Background'></Image>
-
             </div>
             <div className={`${classes.text_container}`}>
                     <div className={`${classes.decoded} ${classes.text}`} dangerouslySetInnerHTML={{ __html: decodeHtml(carousels[index].text) }} />

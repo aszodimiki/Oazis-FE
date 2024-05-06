@@ -12,7 +12,6 @@ export async function getProductTypes(){
         const res = await fetch(`${localUrl}/api/products/product-types`);
         
        const data: ProductType[] = await res.json();
-       console.log(data);
        
         return data;
     } catch (error) {
@@ -46,9 +45,7 @@ export async function getProductsByType(productType: string |string[] | undefine
     try {
         const res = await fetch(`${localUrl}/api/products/product-types/${productType}`);
     
-        const data: Product[] = await res.json();
-        console.log(data);
-        
+        const data: Product[] = await res.json();        
         return data;
     } catch (error) {
         return null;
@@ -81,9 +78,7 @@ export async function getGaleryPictures(){
     try {
         const res = await fetch(`${localUrl}/api/galery/images`);
     
-        const data: GaleryPicture[] = await res.json();
-        console.log(data);
-        
+        const data: GaleryPicture[] = await res.json();        
         return data;
     } catch (error) {
         return null;

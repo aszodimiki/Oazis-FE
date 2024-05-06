@@ -7,14 +7,12 @@ import { useEffect, useState } from 'react';
 function Footer(){
     const [data, setData] = useState<FooterTexts | null>(null);
 
-    const apiUrl = 'https://localhost:44302/api/information/footer';
-
+    const apiUrl = 'https://localhost:44370/api/information/footer';
+    
     useEffect(() => {
         axios.get<FooterTexts>(apiUrl)
             .then(response => {
-                setData(response.data);
-                console.log(data?.socialLinks);
-                
+                setData(response.data);                
             })
             .catch(err => {
                 setData(null);
@@ -32,7 +30,7 @@ function Footer(){
                     <div className={classes.decoded} dangerouslySetInnerHTML={{ __html: decodeHtml(data.openingHours) }} />
                 </div>}
                 <div className={[classes.datas, classes.icons].join(' ')}>
-                    { data?.socialLinks && data.socialLinks.map((item, i) =><a href={item.socialUrl}><img key={i} className={classes.logo_size} src={'https://localhost:44302'+item.imageUrl} /></a> )}
+                    { data?.socialLinks && data.socialLinks.map((item, i) =><a href={item.socialUrl}><img key={i} className={classes.logo_size} src={'https://localhost:44370'+item.imageUrl} /></a> )}
                 </div>
             </div>
         </div>

@@ -1,8 +1,6 @@
 import classes from './Card.module.css';
 
-function Card({food}:{food: Product}){
-    console.log(food);
-    
+function Card({food}:{food: Product}){    
     return(
         <div className={classes.container}>
             <div className={classes.text}>

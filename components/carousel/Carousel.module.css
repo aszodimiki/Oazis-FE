@@ -32,13 +32,19 @@
     top: calc(50% - 40px);
 }
 
-.image_container{
+/* .image_container{
     
     width: 100%;
     height: 400px;
     margin: 0;
     position: relative;
 
+} */
+
+.image_container{
+    width: 100%;
+    height: 400px;
+    margin: 0;
 }
 
 .text_container{

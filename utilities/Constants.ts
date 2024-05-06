@@ -1,4 +1,4 @@
-const BASE_API_URL : string = 'https://localhost:44302/api/';
+const BASE_API_URL : string = 'https://localhost:44370/api/';
 
 export default class ENDPOINTS{
     static GET_ALL_PIZZA:string = BASE_API_URL + 'pizza';
