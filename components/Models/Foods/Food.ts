@@ -5,7 +5,8 @@ interface BasicProduct{
 }
 
 interface Product extends BasicProduct{
-    ingredients: string[]
+    ingredients: string[] | null
+    secondPrice: number | null
 }
 interface Ingredient{
     ingredients: string

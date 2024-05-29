@@ -1,4 +1,4 @@
-import decodeHtml from '@/helpers/HtmlDecoder';
+import { decodeHtml } from '@/helpers/HtmlDecoder';
 import classes from './Weekly_Card.module.css';
 import { DailyMenu } from './WeekylMenu';
 

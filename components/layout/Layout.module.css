@@ -1,15 +1,40 @@
-.main{
-    background: white  url("../../public/oazis_bg.png") top fixed no-repeat !important;
+.base{
     width: 100%;
+    bottom: 0;
     height: 100%;
 }
 
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url("../../public/Oazis-test-bg.png");
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    filter: blur(8px);
+  }
+
+.background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+  }
+
 .container {
-    margin-top: 3rem;
-    margin-bottom: 0rem;
-    margin-right: auto;
-    margin-left: auto;
-    width: 90%;
-    max-width: 80rem;
-    min-height: calc(100vh - 178px - 9rem);
+  padding-top: 6rem;
+  margin-bottom: 0rem;
+  margin-right: auto;
+  margin-left: auto;
+  width: 80%;
+  max-width: 90rem;
+  height: 100vh;
+  z-index: 2;
+  position: relative;
 }

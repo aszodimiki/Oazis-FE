@@ -1,4 +1,4 @@
-import FoodMenu from '@/components/FoodMenu/FoodMenu';
+import DrinkMenu from '@/components/drinkMenu/DrinkMenu';
 import { getProductTypes, getProductsByType } from '@/helpers/api-utils';
 import React, { useState } from 'react';
 
@@ -8,14 +8,14 @@ interface PropductProps {
   initialCategory: string;
 } 
 
-const Menu = ({productTypes, products, initialCategory}: PropductProps) => {
+const Drinks = ({productTypes, products, initialCategory}: PropductProps) => {
   
   return (
-    <FoodMenu productTypes={productTypes} products={products} initialCategory={initialCategory}></FoodMenu>
+    <DrinkMenu productTypes={productTypes} products={products} initialCategory={initialCategory}></DrinkMenu>
   );
 };
 
-export default Menu;
+export default Drinks;
 
 export async function getServerSideProps() {
   const productTypes = await getProductTypes();

@@ -1,4 +1,4 @@
-import decodeHtml from '@/helpers/HtmlDecoder';
+import {decodeHtml} from '@/helpers/HtmlDecoder';
 import classes from './TextOneColumnContainer.module.css';
 
 function TextOneColumnContainer({text}:{text: string}){

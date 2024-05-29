@@ -22,7 +22,7 @@ function ProductType({products}: PropductProps){
 
 export const getServerSideProps: GetServerSideProps= async (context) => {
     const {params} = context;
-    const productType = params?.productType;
+    const productType = params?.productType as string;
     const result = await getProductsByType(productType);
     
     return {

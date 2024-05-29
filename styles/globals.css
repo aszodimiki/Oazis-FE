@@ -5,9 +5,45 @@
   margin: 0;
 }
 
+html, body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  overflow: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* body {
+  background: url("../public/Oazis-test-bg.png") no-repeat center center fixed; 
+  background-size: cover;
+  
+} */
+
+body::after{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+#__next {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 :root {
  --primaryColor: rgb(154,65,222);
  --secondaryColor: black;
- --textColor: white;
- color: #383e42 ;
+ --textColor: #fff;
+ --grey: rgba(12, 12, 13, 0.78);
+ --white: #fff ;
 }

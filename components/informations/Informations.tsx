@@ -5,7 +5,7 @@ import type { Informations } from './InformationModels';
 import React, { useEffect, useState } from 'react';
 import Loader from '../ui/Loader';
 import parse from 'html-react-parser';
-import decodeHtml from '@/helpers/HtmlDecoder';
+import {decodeHtml} from '@/helpers/HtmlDecoder';
 
 const Map = dynamic(() => import("@/components/map/Map"),{
     ssr:false

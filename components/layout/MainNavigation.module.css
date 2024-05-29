@@ -1,14 +1,22 @@
 .container {
 	display: flex;
+	width: 100%;
 	align-items: center;
 	justify-content: space-between;
-	height: 80px;
+	height: 120px;
 	padding: 0 2rem;
-	background-color: #8B623A;
+	background-color: var(--grey);
 	color: var(--textColor);
-	position: relative;
+	position: fixed;
 	z-index: 10;
+	background-color: transparent; 
+	transition: all 0.1s ease-in-out;
 }
+
+.scrolled {
+	height: 90px;
+	background-color: rgba(0, 0, 0);
+  }
 
 .nav_a {
 	margin: 0 1rem;
@@ -55,7 +63,7 @@
 		align-items: flex-start;
 		justify-content: center;
 		gap: 2rem;
-		background-color: #8B623A;;
+		background-color: #22252f;
 		transition: 0.5s;
 		transform: translateX(100%);
 	}

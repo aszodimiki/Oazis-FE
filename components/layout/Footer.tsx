@@ -1,4 +1,4 @@
-import decodeHtml from '@/helpers/HtmlDecoder';
+import {decodeHtml} from '@/helpers/HtmlDecoder';
 import classes from './Footer.module.css';
 import { FooterTexts } from './TextModels';
 import axios from 'axios';
@@ -6,15 +6,12 @@ import { useEffect, useState } from 'react';
 
 function Footer(){
     const [data, setData] = useState<FooterTexts | null>(null);
-
-    const apiUrl = 'https://localhost:44302/api/information/footer';
+    const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
 
     useEffect(() => {
-        axios.get<FooterTexts>(apiUrl)
+        axios.get<FooterTexts>(`${baseUrl}/api/information/footer`)
             .then(response => {
-                setData(response.data);
-                console.log(data?.socialLinks);
-                
+                setData(response.data);                
             })
             .catch(err => {
                 setData(null);
@@ -32,7 +29,7 @@ function Footer(){
                     <div className={classes.decoded} dangerouslySetInnerHTML={{ __html: decodeHtml(data.openingHours) }} />
                 </div>}
                 <div className={[classes.datas, classes.icons].join(' ')}>
-                    { data?.socialLinks && data.socialLinks.map((item, i) =><a href={item.socialUrl}><img key={i} className={classes.logo_size} src={'https://localhost:44302'+item.imageUrl} /></a> )}
+                    { data?.socialLinks && data.socialLinks.map((item, i) =><a href={item.socialUrl}><img key={i} className={classes.logo_size} src={baseUrl+item.imageUrl} /></a> )}
                 </div>
             </div>
         </div>

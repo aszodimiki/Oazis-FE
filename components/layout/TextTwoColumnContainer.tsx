@@ -1,4 +1,4 @@
-import decodeHtml from '@/helpers/HtmlDecoder';
+import {decodeHtml} from '@/helpers/HtmlDecoder';
 import classes from './TextTwoColumnContainer.module.css';
 
 function TextTwoColumnContainer({leftColumn, rightColumn}:{leftColumn: string, rightColumn: string}){
