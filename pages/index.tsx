@@ -19,7 +19,7 @@ interface HomePageDatas {
 export default function HomePage({carousels, gridBlocks}: HomePageDatas) {
   
   return (
-      <Home carouselModels={carousels} gridBlocks={gridBlocks} />
+    <Home carouselModels={carousels} gridBlocks={gridBlocks} />
   );
 }
 

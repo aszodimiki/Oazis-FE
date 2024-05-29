@@ -8,13 +8,30 @@
 html, body {
   padding: 0;
   margin: 0;
-  height: 100%; /* Fontos a teljes magasság beállítása */
+  height: 100%;
   overflow: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+body::-webkit-scrollbar {
+  display: none;
 }
 
-body {
+/* body {
   background: url("../public/Oazis-test-bg.png") no-repeat center center fixed; 
-  background-size: cover; /* A háttérkép lefedi az egész oldalt */
+  background-size: cover;
+  
+} */
+
+body::after{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
 }
 
 #__next {
@@ -28,5 +45,5 @@ body {
  --secondaryColor: black;
  --textColor: #fff;
  --grey: rgba(12, 12, 13, 0.78);
- color: #fff ;
+ --white: #fff ;
 }

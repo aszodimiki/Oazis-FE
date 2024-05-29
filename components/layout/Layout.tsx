@@ -12,7 +12,8 @@ type LayoutProps = {
 export default function Layout({children} : LayoutProps){
 const mainRef = useRef<HTMLDivElement | null>(null);
     return (
-        <div ref={mainRef} className={classes.base}>
+        <div ref={mainRef} className={`${classes.base}`}>
+            <div className={classes.background}></div>
             <MainNavigation target={mainRef}/>
             <main className={classes.container}>{children}</main>
             {/* <Footer/> */}

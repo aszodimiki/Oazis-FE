@@ -5,13 +5,12 @@ import { Informations } from "@/components/informations/InformationModels";
 import { FooterTexts } from "@/components/layout/TextModels";
 import { DailyMenu, WeeklyMenu } from "@/components/weekly-menu/WeekylMenu";
 
-const localUrl = process.env.API_LOCAL_URL;
+const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 export async function getProductTypes(){
     try {
-        const res = await fetch(`${localUrl}/api/products/product-types`);
-        
-       const data: ProductType[] = await res.json();
+        const res = await fetch(`${baseUrl}/api/products/product-types`);
+        const data: ProductType[] = await res.json();
        
         return data;
     } catch (error) {
@@ -21,7 +20,7 @@ export async function getProductTypes(){
 
 export async function getInformations(){
     try {
-        const res = await fetch(`${localUrl}/api/information`);
+        const res = await fetch(`${baseUrl}/api/information`);
         
        const data: Informations = await res.json();
         return data;
@@ -32,7 +31,7 @@ export async function getInformations(){
 
 export async function getFooterTexts(){
     try {
-        const res = await fetch(`${localUrl}/api/information/footer`);
+        const res = await fetch(`${baseUrl}/api/information/footer`);
         
         const data: FooterTexts = await res.json();
         return data;
@@ -41,11 +40,11 @@ export async function getFooterTexts(){
     }
 }
 
-export async function getProductsByType(productType: string |string[] | undefined){
+export async function getProductsByType(productType: string) : Promise<Product[] | null>{
     try {
-        const res = await fetch(`${localUrl}/api/products/product-types/${productType}`);
+        const res = await fetch(`${baseUrl}/api/products/product-types/${productType}`);
     
-        const data: Product[] = await res.json();        
+        const data: Product[] | null = await res.json();        
         return data;
     } catch (error) {
         return null;
@@ -54,7 +53,7 @@ export async function getProductsByType(productType: string |string[] | undefine
 
 export async function getWeeklyMenu(){
     try {
-        const res = await fetch(`${localUrl}/api/products/weekly`);
+        const res = await fetch(`${baseUrl}/api/products/weekly`);
         
         const data: WeeklyMenu = await res.json();
         return data;
@@ -65,7 +64,7 @@ export async function getWeeklyMenu(){
 
 export async function getCarousels(){
     try {
-        const res = await fetch(`${localUrl}/api/texts/carousels`);
+        const res = await fetch(`${baseUrl}/api/texts/carousels`);
     
         const data: CarouselModel[] = await res.json();
         return data;
@@ -76,7 +75,7 @@ export async function getCarousels(){
 
 export async function getGaleryPictures(){
     try {
-        const res = await fetch(`${localUrl}/api/galery/images`);
+        const res = await fetch(`${baseUrl}/api/galery/images`);
     
         const data: GaleryPicture[] = await res.json();        
         return data;
@@ -87,7 +86,7 @@ export async function getGaleryPictures(){
 
 export async function getHomeTexts(){
     try {
-        const res = await fetch(`${localUrl}/api/texts/home`);
+        const res = await fetch(`${baseUrl}/api/texts/home`);
     
         const data: GridBlock[] = await res.json();
         return data;
@@ -98,7 +97,7 @@ export async function getHomeTexts(){
 
 export async function getWeeklyTexts(){
     try {
-        const res = await fetch(`${localUrl}/api/texts/weekly`);
+        const res = await fetch(`${baseUrl}/api/texts/weekly`);
     
         const data: GridBlock[] = await res.json();
         return data;

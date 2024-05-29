@@ -23,11 +23,6 @@ function MainNavigation({target}: NavBarProps){
       const element = target.current;
       const totalHeight = element.clientHeight - element.offsetTop - window.innerHeight;
       const windowsScrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-    console.log('AASDASDASDASD');
-    
-      console.log(element);
-      console.log(totalHeight);
-      console.log(windowsScrollTop);
 
       if(windowsScrollTop === 0){
         setScrolled(false);
@@ -53,7 +48,8 @@ function MainNavigation({target}: NavBarProps){
         <div>Oázis</div>
         <div className={isDisappear}>
           <Link className={classes.nav_a} href='/' onClick={() =>setIsModal(!isModal)}>Kezdőlap</Link>
-          <Link className={classes.nav_a}href='/menu' onClick={() =>setIsModal(!isModal)}>Étel- és Itallap</Link>
+          <Link className={classes.nav_a}href='/menu' onClick={() =>setIsModal(!isModal)}>Étellpa</Link>
+          <Link className={classes.nav_a}href='/drinks' onClick={() =>setIsModal(!isModal)}>Itallap</Link>
           <Link className={classes.nav_a} href='/weekly' onClick={() =>setIsModal(!isModal)}>Heti menü</Link>
           <Link className={classes.nav_a}href='/galeria' onClick={() =>setIsModal(!isModal)}>Galéria</Link>
           <Link className={classes.nav_a}href='/informations' onClick={() =>setIsModal(!isModal)}>Információk</Link>

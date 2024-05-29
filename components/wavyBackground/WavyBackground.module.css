@@ -1,0 +1,52 @@
+/* components/WavyBackground.module.css */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+  }
+  
+  .wavyContainer {
+    position: relative;
+    width: 80%;
+    background: white;
+  }
+  
+  .topLine,
+  .bottomLine {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: black;
+  }
+  
+  .topLine {
+    top: 0;
+  }
+  
+  .bottomLine {
+    bottom: 0;
+  }
+  
+  .wavySides {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+  }
+  
+  .wavy {
+    width: 10px;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 100"><path d="M0 0 Q 5 50 0 100 T 0 200" fill="none" stroke="black" stroke-width="2"/></svg>') repeat-y;
+    background-size: cover;
+  }
+  
+  .content {
+    flex: 1;
+    padding: 0 20px;
+  }
+  

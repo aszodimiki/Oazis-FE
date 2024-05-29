@@ -3,13 +3,22 @@ import classes from './Card.module.css';
 function Card({food}:{food: Product}){    
     return(
         <div className={classes.container}>
+            <div className={classes.pizza_size_container}>
+                <h3>32cm</h3>
+                <h3>26cm</h3>
+            </div>
+            
             <div className={classes.text}>
                 <h3 >
                     {food.productName}
                 </h3>
-                <h3 className={classes.item_to_right}>
-                    {food.price}
-                </h3>
+                <div className={classes.item_to_right}>
+                    <h3>{food.price} Ft</h3>
+                    {food.secondPrice && food.secondPrice !== 0 && <h3>
+                    { food.secondPrice} Ft
+                </h3>}
+                </div>
+                
             </div>
             
             {food.ingredients && food.ingredients.length > 0 &&

@@ -63,7 +63,7 @@
 		align-items: flex-start;
 		justify-content: center;
 		gap: 2rem;
-		background-color: #8B623A;;
+		background-color: #22252f;
 		transition: 0.5s;
 		transform: translateX(100%);
 	}

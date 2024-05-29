@@ -1,13 +1,17 @@
 import Image from 'next/image';
 import classes from './Carousel.module.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { CarouselModel } from './CarouselModel';
-import decodeHtml from '@/helpers/HtmlDecoder';
+import { decodeHtml } from '@/helpers/HtmlDecoder';
 
 export default function Carousel({carouselModels}:{carouselModels: CarouselModel[]}){
     const [index, setIndex] = useState<number>(0);
+    const [isScrollable, setIsScrollable] = useState(false);
+    const [isAtBottom, setIsAtBottom] = useState(false);
+    const decodedRef = useRef(null);
 
     const images:string[] = ["/Carousel_background.svg", "/foods.jpeg"];
+
     const carousels = carouselModels;
     function loop(count:number){
         if(count == carouselModels.length){
@@ -26,15 +30,53 @@ export default function Carousel({carouselModels}:{carouselModels: CarouselModel
         return ()=> clearInterval(invetval)
     })
 
+    const checkScrollable = () => {
+        const element = decodedRef.current as unknown as HTMLElement;     
+        if (element) {
+            setIsScrollable(element.scrollHeight > element.clientHeight);
+        }
+      };
+    
+      useEffect(() => {
+        checkScrollable();
+        window.addEventListener('resize', checkScrollable);
+        return () => {
+          window.removeEventListener('resize', checkScrollable);
+        };
+      }, []);
+
+      useEffect(() => {
+        const checkScrollable = () => {
+            const element = decodedRef.current as unknown as HTMLElement;
+            if (decodedRef.current) {
+                setIsScrollable(element.scrollHeight > element.clientHeight);
+            }
+        };
+
+        checkScrollable();
+
+        const observer = new MutationObserver(checkScrollable);
+        if (decodedRef.current) {
+            
+            observer.observe(decodedRef.current, { childList: true, subtree: true });
+        }
+
+        window.addEventListener('resize', checkScrollable);
+        return () => {
+          observer.disconnect();
+          window.removeEventListener('resize', checkScrollable);
+        };
+      }, []);
+
     return(
-        <div className={classes.main}>
-            <div className={classes.image_container}>
-                <button className={`${classes.prev} ${classes.button}`} onClick={() => setIndex(count => loop(count-1))}>&#8678;</button>
-                <button className={`${classes.next} ${classes.button}`} onClick={() => setIndex(count => loop(count+1))}>&#8680;</button>
-                    <Image className={classes.image} src={'https://localhost:44370'+carousels[index].backgroundPath} fill={true} alt='Carousel Background'></Image>
-            </div>
-            <div className={`${classes.text_container}`}>
-                    <div className={`${classes.decoded} ${classes.text}`} dangerouslySetInnerHTML={{ __html: decodeHtml(carousels[index].text) }} />
+        <div className={classes.carousel}>
+            <div className={classes.slide}>
+                <button className={`${classes.prev} ${classes.button}`} onClick={() => setIndex(count => loop(count-1))}></button>
+                <button className={`${classes.next} ${classes.button}`} onClick={() => setIndex(count => loop(count+1))}></button>
+                <div className={`${classes.text}`}>
+                    <div className={`${classes.decoded}`} ref={decodedRef} dangerouslySetInnerHTML={{ __html: decodeHtml(carousels[index].text) }} />
+                    {isScrollable && <div className={classes.scrollIndicator}>&#x25BC;</div>}
+                </div>
             </div>
         </div>
     );
