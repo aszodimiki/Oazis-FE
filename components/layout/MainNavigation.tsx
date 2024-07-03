@@ -1,10 +1,7 @@
 import Link from 'next/link';
 import { useCallback, useEffect, useState } from "react";
 import classes from './MainNavigation.module.css'
-import useSWR from 'swr'
-import { MainLinks } from '../details/Details';
-import ENDPOINTS from '@/utilities/Constants';
-import { FaTimes, FaReact,FaBars } from 'react-icons/fa';
+import { FaTimes, FaBars } from 'react-icons/fa';
 
 type NavBarProps = {
   target: React.RefObject<HTMLDivElement>
@@ -12,7 +9,6 @@ type NavBarProps = {
 }
 
 function MainNavigation({target}: NavBarProps){
-    const { data, error }: {data: MainLinks[], error : any} = useSWR(ENDPOINTS.GET_LINKS,(apiURL: string) => fetch(apiURL).then(res => res.json()));
     const [isModal, setIsModal] = useState(false);
     const [scrolled, setScrolled] = useState(false);
 
