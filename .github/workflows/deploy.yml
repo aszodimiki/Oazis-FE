@@ -31,8 +31,6 @@ jobs:
             echo ".next directory exists"
             echo "Full path of .next directory:"
             realpath .next
-            echo "Full path of package.json directory:"
-            realpath package.json
             echo "Contents of .next:"
             ls -la .next
           else
@@ -68,8 +66,23 @@ jobs:
           host: ${{ secrets.VPS_ADDRESS }}
           username: ${{ secrets.VPS_USER }}
           password: ${{ secrets.VPS_PSW }}
-          source: ".next/**,./public,package.json"
+          source: ".next/**,public/**,package.json"
           target: "/var/www/oazis-app"
+
+      - name: Verify .next directory on VPS
+        uses: appleboy/ssh-action@v0.1.4
+        with:
+          host: ${{ secrets.VPS_ADDRESS }}
+          username: ${{ secrets.VPS_USER }}
+          password: ${{ secrets.VPS_PSW }}
+          script: |
+            if [ -d /var/www/oazis-app/.next ]; then
+              echo ".next directory successfully copied"
+              ls -la /var/www/oazis-app/.next
+            else
+              echo ".next directory not found on target"
+              exit 1
+            fi
 
       - name: Install dependencies on VPS
         uses: appleboy/ssh-action@v0.1.4
