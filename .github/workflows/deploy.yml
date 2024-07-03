@@ -29,8 +29,10 @@ jobs:
         run: |
           if [ -d ".next" ]; then
             echo ".next directory exists"
-            echo "Full path:"
-            pwd
+            echo "Full path of .next directory:"
+            realpath .next
+            echo "Full path of package.json directory:"
+            realpath package.json
             echo "Contents of .next:"
             ls -la .next
           else
@@ -66,7 +68,7 @@ jobs:
           host: ${{ secrets.VPS_ADDRESS }}
           username: ${{ secrets.VPS_USER }}
           password: ${{ secrets.VPS_PSW }}
-          source: ".next,./public,package.json"
+          source: ".next/**,./public,package.json"
           target: "/var/www/oazis-app"
 
       - name: Install dependencies on VPS
