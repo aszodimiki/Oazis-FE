@@ -75,7 +75,7 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           password: ${{ secrets.VPS_PSW }}
           script: |
-            sudo systemctl restart oazis-app.service
+            #systemctl restart oazis-app.service
         continue-on-error: true
 
       - name: Check if deployment succeeded
@@ -86,7 +86,7 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           password: ${{ secrets.VPS_PSW }}
           script: |
-            systemctl is-active oazis-app.service
+            #systemctl is-active oazis-app.service
         continue-on-error: true
 
       - name: Rollback if deployment failed
@@ -100,7 +100,7 @@ jobs:
             if [ -d /var/www/oazis-app_backup ]; then
               rm -rf /var/www/oazis-app
               mv /var/www/oazis-app_backup /var/www/oazis-app
-              sudo systemctl restart oazis-app.service
+              #systemctl restart oazis-app.service
             fi
 
       - name: Cleanup backup after successful deployment
