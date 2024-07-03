@@ -47,31 +47,13 @@ jobs:
               rm -rf /var/www/oazis-app
             fi
 
-      - name: Copy next files via SSH
+      - name: Copy build files via SSH
         uses: appleboy/scp-action@v0.1.3
         with:
           host: ${{ secrets.VPS_ADDRESS }}
           username: ${{ secrets.VPS_USER }}
           password: ${{ secrets.VPS_PSW }}
-          source: "./.next"
-          target: "/var/www/oazis-app"
-      
-      - name: Copy package.json files via SSH
-        uses: appleboy/scp-action@v0.1.3
-        with:
-          host: ${{ secrets.VPS_ADDRESS }}
-          username: ${{ secrets.VPS_USER }}
-          password: ${{ secrets.VPS_PSW }}
-          source: "./package.json"
-          target: "/var/www/oazis-app"
-
-      - name: Copy public files via SSH
-        uses: appleboy/scp-action@v0.1.3
-        with:
-          host: ${{ secrets.VPS_ADDRESS }}
-          username: ${{ secrets.VPS_USER }}
-          password: ${{ secrets.VPS_PSW }}
-          source: "./public"
+          source: "./.next,./static,./public,package.json"
           target: "/var/www/oazis-app"
 
       - name: Install dependencies on VPS
