@@ -45,7 +45,7 @@ function MainNavigation({target}: NavBarProps){
 
     return (
       <div className={`${classes.container} ${scrolled ? classes.scrolled : ''}`}>
-        <div>Oázis</div>
+        <Link className={classes.nav_title} href='/' onClick={() =>setIsModal(!isModal)}>Oázis</Link>
         <div className={isDisappear}>
           <Link className={classes.nav_a} href='/' onClick={() =>setIsModal(!isModal)}>Kezdőlap</Link>
           <Link className={classes.nav_a}href='/menu' onClick={() =>setIsModal(!isModal)}>Étellpa</Link>

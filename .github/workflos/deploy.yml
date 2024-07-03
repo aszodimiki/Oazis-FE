@@ -1,0 +1,134 @@
+name: Deploy Next.js to Ubuntu VPS
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.15.0'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Next.js project
+        run: |
+          export NODE_ENV=production
+          npm run build
+
+      - name: Backup current project directory
+        uses: appleboy/ssh-action@v0.1.4
+        with:
+          host: ${{ secrets.VPS_ADDRESS }}
+          username: ${{ secrets.VPS_USER }}
+          password: ${{ secrets.VPS_PSW }}
+          script: |
+            if [ -d /var/www/oazis-app ]; then
+              cp -r /var/www/oazis-app /var/www/oazis-app_backup
+            fi
+
+      - name: Clean target directory on VPS
+        uses: appleboy/ssh-action@v0.1.4
+        with:
+          host: ${{ secrets.VPS_ADDRESS }}
+          username: ${{ secrets.VPS_USER }}
+          password: ${{ secrets.VPS_PSW }}
+          script: |
+            if [ -d /var/www/oazis-app ]; then
+              rm -rf /var/www/oazis-app
+            fi
+
+      - name: Copy files via SSH
+        uses: appleboy/scp-action@v0.1.3
+        with:
+          host: ${{ secrets.VPS_ADDRESS }}
+          username: ${{ secrets.VPS_USER }}
+          password: ${{ secrets.VPS_PSW }}
+          source: "./.next"
+          target: "/var/www/oazis-app/.next"
+
+      - name: Copy static files via SSH
+        uses: appleboy/scp-action@v0.1.3
+        with:
+          host: ${{ secrets.VPS_ADDRESS }}
+          username: ${{ secrets.VPS_USER }}
+          password: ${{ secrets.VPS_PSW }}
+          source: "./public"
+          target: "/var/www/oazis-app/public"
+
+      - name: Copy package.json and next.config.js
+        uses: appleboy/scp-action@v0.1.3
+        with:
+          host: ${{ secrets.VPS_ADDRESS }}
+          username: ${{ secrets.VPS_USER }}
+          password: ${{ secrets.VPS_PSW }}
+          source: |
+            "./package.json"
+            "./next.config.js"
+          target: "/var/www/oazis-app"
+
+      - name: Install dependencies on VPS
+        uses: appleboy/ssh-action@v0.1.4
+        with:
+          host: ${{ secrets.VPS_ADDRESS }}
+          username: ${{ secrets.VPS_USER }}
+          password: ${{ secrets.VPS_PSW }}
+          script: |
+            cd /var/www/oazis-app
+            npm install --production
+
+      - name: Restart Oazis App service
+        id: restart_service
+        uses: appleboy/ssh-action@v0.1.4
+        with:
+          host: ${{ secrets.VPS_ADDRESS }}
+          username: ${{ secrets.VPS_USER }}
+          password: ${{ secrets.VPS_PSW }}
+          script: |
+            sudo systemctl restart oazis-app.service
+        continue-on-error: true
+
+      - name: Check if deployment succeeded
+        id: check_status
+        uses: appleboy/ssh-action@v0.1.4
+        with:
+          host: ${{ secrets.VPS_ADDRESS }}
+          username: ${{ secrets.VPS_USER }}
+          password: ${{ secrets.VPS_PSW }}
+          script: |
+            sudo systemctl is-active oazis-app.service
+        continue-on-error: true
+
+      - name: Rollback if deployment failed
+        if: steps.check_status.outcome == 'failure'
+        uses: appleboy/ssh-action@v0.1.4
+        with:
+          host: ${{ secrets.VPS_ADDRESS }}
+          username: ${{ secrets.VPS_USER }}
+          password: ${{ secrets.VPS_PSW }}
+          script: |
+            if [ -d /var/www/oazis-app_backup ]; then
+              rm -rf /var/www/oazis-app
+              mv /var/www/oazis-app_backup /var/www/oazis-app
+              sudo systemctl restart oazis-app.service
+            fi
+
+      - name: Cleanup backup after successful deployment
+        if: steps.check_status.outcome == 'success'
+        uses: appleboy/ssh-action@v0.1.4
+        with:
+          host: ${{ secrets.VPS_ADDRESS }}
+          username: ${{ secrets.VPS_USER }}
+          password: ${{ secrets.VPS_PSW }}
+          script: |
+            if [ -d /var/www/oazis-app_backup ]; then
+              rm -rf /var/www/oazis-app_backup
+            fi
