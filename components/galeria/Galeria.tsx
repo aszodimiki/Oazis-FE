@@ -5,7 +5,7 @@ import { GaleryPicture } from './PictureModel';
 function Galeria({pictures}:{pictures: GaleryPicture[]}){
     return(
         <ul className={classes.list}>
-            {pictures.map((picture, i) => <Picture key={i} picture={picture}/>)}
+            {pictures?.map((picture, i) => <Picture key={i} picture={picture}/>)}
         </ul>
         
     );
