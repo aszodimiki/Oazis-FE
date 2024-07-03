@@ -12,10 +12,8 @@ const Map = dynamic(() => import("@/components/map/Map"),{
 });
 
 function Informations({informations}:{informations: Informations}) {
-    //space: &nbsp;
-    
+  
     return (
-        
         <div className={classes.container}>
             <div className={classes.basic_container}>
                 <div className={classes.decoded} dangerouslySetInnerHTML={{ __html: decodeHtml(informations.address) }} />

@@ -6,7 +6,8 @@
     display: flex;
     justify-content: center;
     margin-bottom: 60px;
-    color: #fff;
+    color: var(--white);
+    flex-wrap: wrap;
 }
 
 .category_button {
@@ -15,9 +16,9 @@
     border: none;
     background: none;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1.3rem;
     position: relative;
-    color: #fff;
+    color: var(--white);
   }
 
   .category-button.active::after {
