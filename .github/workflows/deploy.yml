@@ -47,13 +47,13 @@ jobs:
               rm -rf /var/www/oazis-app
             fi
 
-      - name: Copy files via SSH
+      - name: Copy build files via SSH
         uses: appleboy/scp-action@v0.1.3
         with:
           host: ${{ secrets.VPS_ADDRESS }}
           username: ${{ secrets.VPS_USER }}
           password: ${{ secrets.VPS_PSW }}
-          source: ".next static public package.json"
+          source: ".next/* static/* public/* package.json"
           target: "/var/www/oazis-app"
 
       - name: Install dependencies on VPS
@@ -65,7 +65,7 @@ jobs:
           script: |
             cd /var/www/oazis-app
             npm install --production
-            chown -R www-data:www-data /var/www/oazis-app
+            sudo chown -R www-data:www-data /var/www/oazis-app
 
       - name: Restart Next.js application
         id: restart_service
@@ -75,7 +75,7 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           password: ${{ secrets.VPS_PSW }}
           script: |
-            systemctl restart oazis-app.service
+            sudo systemctl restart oazis-app.service
         continue-on-error: true
 
       - name: Check if deployment succeeded
@@ -100,7 +100,7 @@ jobs:
             if [ -d /var/www/oazis-app_backup ]; then
               rm -rf /var/www/oazis-app
               mv /var/www/oazis-app_backup /var/www/oazis-app
-              systemctl restart oazis-app.service
+              sudo systemctl restart oazis-app.service
             fi
 
       - name: Cleanup backup after successful deployment
