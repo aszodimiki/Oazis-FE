@@ -13,6 +13,10 @@ const nextConfig = {
         hostname: 'localhost',
         port: '44370'
       },
+      {
+        protocol: 'https',
+        hostname: 'oazisvendeglo.hu',
+      }
     ],
   },
 }

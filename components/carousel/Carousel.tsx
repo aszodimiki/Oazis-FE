@@ -23,12 +23,12 @@ export default function Carousel({carouselModels}:{carouselModels: CarouselModel
         return count;
     }
 
-    useEffect(()=> {
-        const invetval = setInterval(
-            ()=> setIndex(count => loop(count+1))
-            ,5000);
-        return ()=> clearInterval(invetval)
-    })
+    // useEffect(()=> {
+    //     const invetval = setInterval(
+    //         ()=> setIndex(count => loop(count+1))
+    //         ,5000);
+    //     return ()=> clearInterval(invetval)
+    // })
 
     const checkScrollable = () => {
         const element = decodedRef.current as unknown as HTMLElement;     

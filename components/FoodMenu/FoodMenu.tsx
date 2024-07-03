@@ -3,13 +3,19 @@ import Product from "../products/product/Product";
 import Loader from "../ui/Loader";
 import classes from './FoodMenu.module.css';
 import { getProductsByType } from "@/helpers/api-utils";
+import PizzaList from "../products/Pizza/PizzaList";
+import { Indie_Flower } from '@next/font/google';
+
+const indieFlower = Indie_Flower({
+  weight: '400',
+  subsets: ['latin'],
+});
 
 function FoodMenu({productTypes, products, initialCategory}:{productTypes: ProductType[], products: Product[], initialCategory: string}){
   const initCat= initialCategory
     const [selectedCategory, setSelectedCategory] = useState<string>(initCat);
     const [items, setItems] = useState<Product[]>(products);
     const [loading, setLoading] = useState(false);
-    
     
     useEffect(() => {
       const fetchItems =  async (selectedCategory: string) => {
@@ -27,7 +33,6 @@ function FoodMenu({productTypes, products, initialCategory}:{productTypes: Produ
         }
       };
         fetchItems(selectedCategory);
-      
     }, [selectedCategory]);
     
   return (
@@ -36,7 +41,7 @@ function FoodMenu({productTypes, products, initialCategory}:{productTypes: Produ
         {productTypes.map((productType) => (
           <button
             key={productType.typeName}
-            className={`category-button ${selectedCategory === productType.typeName ? 'active' : ''}`}
+            className={`${classes.category_button} ${indieFlower.className} ${selectedCategory === productType.typeName ? 'active' : ''}`}
             onClick={() => setSelectedCategory(productType.typeName)
             }
           >
@@ -45,7 +50,7 @@ function FoodMenu({productTypes, products, initialCategory}:{productTypes: Produ
         ))}
       </div>
 
-    {items?<Product products={items}/>: <Loader/> }
+    {items ? selectedCategory =='pizzak'? <PizzaList key={items.length} products={items}></PizzaList>: <Product key={items.length} products={items}/>: <Loader/> }
       <style jsx>{`
         .category-button {
           margin: 0 10px;

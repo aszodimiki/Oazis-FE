@@ -16,7 +16,7 @@ function ProductType({products}: PropductProps){
     },[products])
 
     return(
-        <div>{data?<Product products={products}/>: <Loader/> }</div>
+        <div>{data?<Product key={products.length} products={products}/>: <Loader/> }</div>
     );
 }
 

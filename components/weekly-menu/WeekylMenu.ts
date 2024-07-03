@@ -3,6 +3,7 @@ export interface WeeklyMenu{
 }
 
 export interface WeeklyGroup{
+    weeklyTitle: string,
     dailyMenus: DailyMenu[]
 }
 
