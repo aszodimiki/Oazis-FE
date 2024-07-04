@@ -92,7 +92,7 @@ jobs:
           password: ${{ secrets.VPS_PSW }}
           script: |
             cd /var/www/oazis-app
-            npm install --production
+            npm install
             sudo chown -R www-data:www-data /var/www/oazis-app
 
       - name: Restart Next.js application
