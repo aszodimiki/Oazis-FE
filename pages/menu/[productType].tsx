@@ -2,6 +2,7 @@ import Product from "@/components/products/product/Product";
 import Loader from "@/components/ui/Loader";
 import { getProductsByType } from "@/helpers/api-utils";
 import { GetServerSideProps } from 'next'
+import Head from "next/head";
 import { useEffect, useState } from "react";
 
 interface PropductProps {
@@ -16,7 +17,20 @@ function ProductType({products}: PropductProps){
     },[products])
 
     return(
-        <div>{data?<Product key={products.length} products={products}/>: <Loader/> }</div>
+        <>
+            <Head>
+                <title>{products.join(", ")}</title>
+                <meta
+                    name="description"
+                    content="Oazis Vendéglő és Pizzéria, ahol a finom ételek és a kellemes környezet találkozik."
+                />
+                <meta property="og:title" content="Oázis Vendéglő és Pizzéria" />
+                <meta property="og:description" content="Magyaros ízek, hamburgerek, sültek, pizzák, gyros" />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content='https://oazisvendeglo.hu/menu' />
+            </Head>
+        {data?<Product key={products.length} products={products}/>: <Loader/> }
+        </>
     );
 }
 

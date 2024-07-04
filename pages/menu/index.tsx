@@ -2,6 +2,7 @@ import FoodMenu from '@/components/FoodMenu/FoodMenu';
 import { getProductTypes, getProductsByType } from '@/helpers/api-utils';
 import React, { useState } from 'react';
 import ProductType from './[productType]';
+import Head from 'next/head';
 
 interface PropductProps {
   productTypes: ProductType[];
@@ -12,7 +13,20 @@ interface PropductProps {
 const Menu = ({productTypes, products, initialCategory}: PropductProps) => {
   
   return (
+    <>
+    <Head>
+        <title>Étlap</title>
+        <meta
+            name="description"
+            content="Oazis Vendéglő és Pizzéria, ahol a finom ételek és a kellemes környezet találkozik."
+          />
+          <meta property="og:title" content="Oázis Vendéglő és Pizzéria" />
+          <meta property="og:description" content="Magyaros ízek, hamburgerek, sültek, pizzák, gyros" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content='https://oazisvendeglo.hu/menu' />
+      </Head>
     <FoodMenu productTypes={productTypes} products={products} initialCategory={initialCategory}></FoodMenu>
+    </>
   );
 };
 

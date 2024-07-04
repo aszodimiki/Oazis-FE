@@ -5,6 +5,7 @@ import { getFooterTexts } from '@/helpers/api-utils';
 import '@/styles/globals.css';
 import type { AppProps } from 'next/app'
 import { Indie_Flower } from '@next/font/google';
+import Head from "next/head";
 
 interface Datas {
   footerTexts: FooterTexts;
@@ -18,15 +19,28 @@ const indieFlower = Indie_Flower({
 export default function App({ Component, pageProps }: AppProps, {footerTexts}:{footerTexts: FooterTexts}){
   
     return (
-          <main className={indieFlower.className}>
+      <>
+        <Head>
+          <title>Oazis Vendéglő és Pizzéria</title>
+          <meta
+            name="description"
+            content="Oazis Vendéglő és Pizzéria, ahol a finom ételek és a kellemes környezet találkozik."
+          />
+          <meta property="og:title" content="Oázis Vendéglő és Pizzéria" />
+          <meta property="og:description" content="Magyaros ízek, hamburgerek, sültek, pizzák, gyros" />
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://oazisvendeglo.hu" />
+          {/* Additional meta tags */}
+        </Head>
+        <main className={indieFlower.className}>
             <Layout>
               <ErrorBoundary>
                 <Component footerTexts={footerTexts} {...pageProps} />
               </ErrorBoundary>
             </Layout>
-          </main>
-          )
-
+        </main>
+      </>
+      )
   }
 
   export async function getStaticProps() {

@@ -2,6 +2,7 @@ import { GridBlock } from "@/components/Models/Grid/GridBlock";
 import Weekly_Menu from "@/components/weekly-menu/Weekly_Menu";
 import {  WeeklyMenu } from "@/components/weekly-menu/WeekylMenu";
 import { getWeeklyMenu, getWeeklyTexts } from "@/helpers/api-utils";
+import Head from "next/head";
 
 interface WeeklyItems {
     weeklyMenu: WeeklyMenu;
@@ -10,9 +11,20 @@ interface WeeklyItems {
 
 function Weekly({weeklyMenu, weeklyMenuTexts}: WeeklyItems){
     return(
-        <div>
-             <Weekly_Menu key={weeklyMenu.weeklyGroups.length} weeklyMenu={weeklyMenu} gridBlocks={weeklyMenuTexts}/>
-        </div>
+        <>
+            <Head>
+                <title>Heti menü, ami változatos</title>
+                <meta
+                    name="description"
+                    content="Oazis Vendéglő és Pizzéria, ahol a finom ételek és a kellemes környezet találkozik."
+                />
+                <meta property="og:title" content="Oázis Vendéglő és Pizzéria" />
+                <meta property="og:description" content="Magyaros ízek, hamburgerek, sültek, pizzák, gyros" />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content='https://oazisvendeglo.hu/menu' />
+            </Head>
+            <Weekly_Menu key={weeklyMenu.weeklyGroups.length} weeklyMenu={weeklyMenu} gridBlocks={weeklyMenuTexts}/>
+        </>
 
     )
 }
