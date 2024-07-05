@@ -44,11 +44,11 @@ function MainNavigation({target}: NavBarProps){
         <Link className={classes.nav_title} href='/' onClick={() =>setIsModal(!isModal)}>Oázis</Link>
         <div className={isDisappear}>
           <Link className={classes.nav_a} href='/' onClick={() =>setIsModal(!isModal)}>Kezdőlap</Link>
-          <Link className={classes.nav_a}href='/menu' onClick={() =>setIsModal(!isModal)}>Étlap</Link>
-          {/* <Link className={classes.nav_a}href='/drinks' onClick={() =>setIsModal(!isModal)}>Itallap</Link> */}
-          <Link className={classes.nav_a} href='/weekly' onClick={() =>setIsModal(!isModal)}>Heti menü</Link>
+          <Link className={classes.nav_a}href='/etlap' onClick={() =>setIsModal(!isModal)}>Étlap</Link>
+          {/* <Link className={classes.nav_a}href='/itallap' onClick={() =>setIsModal(!isModal)}>Itallap</Link> */}
+          <Link className={classes.nav_a} href='/heti' onClick={() =>setIsModal(!isModal)}>Heti menü</Link>
           <Link className={classes.nav_a}href='/galeria' onClick={() =>setIsModal(!isModal)}>Galéria</Link>
-          <Link className={classes.nav_a}href='/informations' onClick={() =>setIsModal(!isModal)}>Információk</Link>
+          <Link className={classes.nav_a}href='/informaciok' onClick={() =>setIsModal(!isModal)}>Információk</Link>
           <button className={[classes.container_nav_btn, classes.nav_nav_close_btn].join(" ")} onClick={() =>setIsModal(!isModal)}>
             <FaTimes />
           </button>

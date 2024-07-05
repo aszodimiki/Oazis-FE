@@ -24,6 +24,7 @@ function InformationPage({informations}: InformationsProps){
                     name="description"
                     content="Étel kiszállítás és asztalfoglalás a Oázis Vendéglő és Pizzériában."
                 />
+                 <meta name="keywords" content="oázis vendéglő, oázis büfé, étterem, étlap, itallap, galéria, információk, pizza, rántott hús, sertés, szárnyas, hamburger, gyros, desszertek, főételek" />
                 <meta property="og:title" content="Oázis Vendéglő és Pizzéria" />
                 <meta property="og:description" content="Magyaros ízek, hamburgerek, sültek, pizzák, gyros" />
                 <meta property="og:type" content="website" />
