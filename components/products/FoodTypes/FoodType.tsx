@@ -7,7 +7,7 @@ function FoodType({foodType}:{foodType: ProductType}){
     return(
 
         <Link href={`menu/${foodType.typeName}`} className={classes.content}>
-            <Image className={classes.image} src={baseUrl+foodType.typeImageUrl} width={250} height={200} alt='Food'/>
+            {/* <Image className={classes.image} src={baseUrl+foodType.typeImageUrl} width={250} height={200} alt='Food'/> */}
             <h3 className={classes.title}>{foodType.nameOfProduct}</h3>
         </Link>
 
