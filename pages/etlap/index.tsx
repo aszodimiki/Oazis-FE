@@ -35,6 +35,7 @@ export default Menu;
 
 export async function getServerSideProps() {
   const productTypes = await getProductTypes();
+  
   const prodictType = productTypes ? productTypes[0].typeName : '';
   const products = await getProductsByType(prodictType);
   return {

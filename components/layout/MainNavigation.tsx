@@ -45,7 +45,7 @@ function MainNavigation({target}: NavBarProps){
         <div className={isDisappear}>
           <Link className={classes.nav_a} href='/' onClick={() =>setIsModal(!isModal)}>Kezdőlap</Link>
           <Link className={classes.nav_a}href='/etlap' onClick={() =>setIsModal(!isModal)}>Étlap</Link>
-          {/* <Link className={classes.nav_a}href='/itallap' onClick={() =>setIsModal(!isModal)}>Itallap</Link> */}
+          <Link className={classes.nav_a}href='/itallap' onClick={() =>setIsModal(!isModal)}>Itallap</Link>
           <Link className={classes.nav_a} href='/heti' onClick={() =>setIsModal(!isModal)}>Heti menü</Link>
           <Link className={classes.nav_a}href='/galeria' onClick={() =>setIsModal(!isModal)}>Galéria</Link>
           <Link className={classes.nav_a}href='/informaciok' onClick={() =>setIsModal(!isModal)}>Információk</Link>

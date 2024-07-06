@@ -18,6 +18,17 @@ export async function getProductTypes(){
     }
 }
 
+export async function getDrinkTypes(){
+    try {
+        const res = await fetch(`${baseUrl}/api/products/drink-types`);
+        const data: DrinkType[] = await res.json();
+       
+        return data;
+    } catch (error) {
+        return null;
+    }
+}
+
 export async function getInformations(){
     try {
         const res = await fetch(`${baseUrl}/api/information`);
@@ -45,6 +56,17 @@ export async function getProductsByType(productType: string) : Promise<Product[]
         const res = await fetch(`${baseUrl}/api/products/product-types/${productType}`);
     
         const data: Product[] | null = await res.json();        
+        return data;
+    } catch (error) {
+        return null;
+    }
+}
+
+export async function getDrinksByType(drinkType: string) : Promise<Drink[] | null>{
+    try {
+        const res = await fetch(`${baseUrl}/api/products/drink-types/${drinkType}`);
+    
+        const data: Drink[] | null = await res.json();        
         return data;
     } catch (error) {
         return null;

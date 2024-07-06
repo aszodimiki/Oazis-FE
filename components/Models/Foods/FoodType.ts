@@ -3,5 +3,10 @@ interface ProductType{
     nameOfType: string,
     typeName: string,
     type: string
-    typeImageUrl: string
+}
+
+interface DrinkType{
+    typeName: string,
+    nameOfProduct: string;
+    type: string
 }

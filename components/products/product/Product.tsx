@@ -5,7 +5,7 @@ function Product({products}:{products: Product[]}) {
 
     return(
         <ul className={classes.list}>
-            {products.map((product, i) => <Card key={i} food={product}/>)}
+            {products.map((product, i) => <Card key={i} product={product}/>)}
         </ul>
     )
 }

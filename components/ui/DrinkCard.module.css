@@ -1,0 +1,65 @@
+.container{
+    width: 100%;
+    color: var(--white);
+    
+}
+
+.container:not(:last-child){
+    border-bottom: 1px solid;
+    margin-bottom: 15px;
+}
+
+.container .text{
+    font-size: 1.3rem;
+    display: flex;
+    color: var(--white);
+}
+
+.container .text .item_to_right{
+    margin-left: auto;
+    margin-right: 0;
+    display: flex;
+    gap: 100px;
+}
+
+.container .ingredients_container{
+    display: flex;
+    padding: 4px 0 20px;
+    flex-flow: wrap;
+    color: var(--white);
+}
+
+.container .ingredients_container .ingredient{
+    font-weight: 800;
+    font-size: 14px;
+}
+
+.container .ingredients_container .ingredient:first-child{
+    margin-right: 5px;
+    content: ' |'; 
+}
+
+.container .ingredients_container .ingredient:not(:first-child){
+    margin: 0 5px;
+}
+
+.container .ingredients_container .ingredient:last-child{
+    margin-right: 0px;
+}
+
+.container .ingredients_container .ingredient:not(:last-child)::after {
+    content: ' |'; 
+    margin-left: 5px;
+}
+
+.pizza_size_container{
+    margin-left: auto;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 150px;
+    justify-content: end;
+}
+
+
+

@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
-import Product from "../products/product/Product";
 import Loader from "../ui/Loader";
 import classes from './DrinkMenu.module.css';
-import { getProductsByType } from "@/helpers/api-utils";
+import { getDrinksByType } from "@/helpers/api-utils";
+import Drink from "../products/drink/Drink";
 
-function DrinkMenu({productTypes, products, initialCategory}:{productTypes: ProductType[], products: Product[], initialCategory: string}){
+function DrinkMenu({drinkTypes, drinks, initialCategory}:{drinkTypes: DrinkType[], drinks: Drink[], initialCategory: string}){
   const initCat= initialCategory
     const [selectedCategory, setSelectedCategory] = useState<string>(initCat);
-    const [items, setItems] = useState<Product[]>(products);
+    const [items, setItems] = useState<Drink[]>(drinks);
     const [loading, setLoading] = useState(false);
     
     
@@ -15,7 +15,7 @@ function DrinkMenu({productTypes, products, initialCategory}:{productTypes: Prod
       const fetchItems =  async (selectedCategory: string) => {
         setLoading(true);
         try {
-          const data = await getProductsByType(selectedCategory);
+          const data = await getDrinksByType(selectedCategory);
           if(data != null){
             setItems(data);
           }
@@ -33,19 +33,19 @@ function DrinkMenu({productTypes, products, initialCategory}:{productTypes: Prod
   return (
     <div className={classes.food_container}>
       <div className={classes.menu_categories}>
-        {productTypes.map((productType) => (
+        {drinkTypes?.map((drinkType) => (
           <button
-            key={productType.typeName}
-            className={`category-button ${selectedCategory === productType.typeName ? 'active' : ''}`}
-            onClick={() => setSelectedCategory(productType.typeName)
+            key={drinkType.typeName}
+            className={`category-button ${selectedCategory === drinkType.typeName ? 'active' : ''}`}
+            onClick={() => setSelectedCategory(drinkType.typeName)
             }
           >
-            {productType.nameOfProduct}
+            {drinkType.nameOfProduct}
           </button>
         ))}
       </div>
 
-    {items?<Product products={items}/>: <Loader/> }
+    {items?<Drink drinks={items}/>: <Loader/> }
       <style jsx>{`
         .category-button {
           margin: 0 10px;
