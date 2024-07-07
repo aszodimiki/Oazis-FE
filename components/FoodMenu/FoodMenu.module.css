@@ -21,7 +21,7 @@
     color: var(--white);
   }
 
-  .category-button.active::after {
+  .active::after {
     content: '';
     display: block;
     width: 100%;

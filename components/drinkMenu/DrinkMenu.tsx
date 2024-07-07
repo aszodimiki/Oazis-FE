@@ -3,6 +3,12 @@ import Loader from "../ui/Loader";
 import classes from './DrinkMenu.module.css';
 import { getDrinksByType } from "@/helpers/api-utils";
 import Drink from "../products/drink/Drink";
+import { Indie_Flower } from '@next/font/google';
+
+const indieFlower = Indie_Flower({
+  weight: '400',
+  subsets: ['latin'],
+});
 
 function DrinkMenu({drinkTypes, drinks, initialCategory}:{drinkTypes: DrinkType[], drinks: Drink[], initialCategory: string}){
   const initCat= initialCategory
@@ -36,7 +42,7 @@ function DrinkMenu({drinkTypes, drinks, initialCategory}:{drinkTypes: DrinkType[
         {drinkTypes?.map((drinkType) => (
           <button
             key={drinkType.typeName}
-            className={`category-button ${selectedCategory === drinkType.typeName ? 'active' : ''}`}
+            className={`${classes.category_button} ${indieFlower.className} ${selectedCategory === drinkType.typeName ? classes.active : ''}`}
             onClick={() => setSelectedCategory(drinkType.typeName)
             }
           >
@@ -46,40 +52,6 @@ function DrinkMenu({drinkTypes, drinks, initialCategory}:{drinkTypes: DrinkType[
       </div>
 
     {items?<Drink drinks={items}/>: <Loader/> }
-      <style jsx>{`
-        .category-button {
-          margin: 0 10px;
-          padding: 10px 20px;
-          border: none;
-          background: none;
-          cursor: pointer;
-          font-size: 16px;
-          position: relative;
-          color: #fff;
-        }
-        .category-button.active::after {
-          content: '';
-          display: block;
-          width: 100%;
-          height: 2px;
-          background: yellow;
-          position: absolute;
-          bottom: -5px;
-          left: 0;
-        }
-        .menu-items {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-        }
-        .menu-item {
-          margin: 10px;
-          padding: 10px;
-          border: 1px solid #ccc;
-          border-radius: 5px;
-          background: #f9f9f9;
-        }
-      `}</style>
     </div>
   );
 }

@@ -10,26 +10,26 @@
 }
 
 .category_button {
-    margin: 0 10px;
-    padding: 10px 20px;
-    border: none;
-    background: none;
-    cursor: pointer;
-    font-size: 16px;
-    position: relative;
-    color: #fff;
-  }
+  margin: 0 10px;
+  padding: 10px 20px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 1.3rem;
+  position: relative;
+  color: var(--white);
+}
 
-  .category_button.active::after {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 2px;
-    background: yellow;
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-  }
+.active::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: yellow;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+}
 
   .menu_items {
     display: flex;

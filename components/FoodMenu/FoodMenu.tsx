@@ -41,7 +41,7 @@ function FoodMenu({productTypes, products, initialCategory}:{productTypes: Produ
         {productTypes.map((productType) => (
           <button
             key={productType.typeName}
-            className={`${classes.category_button} ${indieFlower.className} ${selectedCategory === productType.typeName ? 'active' : ''}`}
+            className={`${classes.category_button} ${indieFlower.className} ${selectedCategory === productType.typeName ? classes.active : ''}`}
             onClick={() => setSelectedCategory(productType.typeName)
             }
           >
@@ -51,40 +51,6 @@ function FoodMenu({productTypes, products, initialCategory}:{productTypes: Produ
       </div>
 
     {items ? selectedCategory =='pizzak'? <PizzaList key={items.length} products={items}></PizzaList>: <Product key={items.length} products={items}/>: <Loader/> }
-      <style jsx>{`
-        .category-button {
-          margin: 0 10px;
-          padding: 10px 20px;
-          border: none;
-          background: none;
-          cursor: pointer;
-          font-size: 16px;
-          position: relative;
-          color: #fff;
-        }
-        .category-button.active::after {
-          content: '';
-          display: block;
-          width: 100%;
-          height: 2px;
-          background: yellow;
-          position: absolute;
-          bottom: -5px;
-          left: 0;
-        }
-        .menu-items {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-        }
-        .menu-item {
-          margin: 10px;
-          padding: 10px;
-          border: 1px solid #ccc;
-          border-radius: 5px;
-          background: #f9f9f9;
-        }
-      `}</style>
     </div>
   );
 }

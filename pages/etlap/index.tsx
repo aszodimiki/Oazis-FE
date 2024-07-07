@@ -1,7 +1,6 @@
 import FoodMenu from '@/components/FoodMenu/FoodMenu';
 import { getProductTypes, getProductsByType } from '@/helpers/api-utils';
 import React, { useState } from 'react';
-import ProductType from './[productType]';
 import Head from 'next/head';
 
 interface PropductProps {
