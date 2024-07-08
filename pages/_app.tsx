@@ -30,26 +30,6 @@ export default function App({ Component, pageProps }: AppProps, {footerTexts}:{f
           <meta property="og:description" content="Magyaros ízek, hamburgerek, sültek, pizzák, gyros" />
           <meta property="og:type" content="website" />
           <meta property="og:url" content="https://oazisvendeglo.hu" />
-          <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "http://schema.org",
-            "@type": "Restaurant",
-            "name": "Oázis Vendéglő",
-            "alternateName": "Oázis Büfé",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Kossuth Lajos út 78",
-              "addressLocality": "Tápiószentmárton",
-              "postalCode": "2711",
-              "addressCountry": "HU"
-            },
-            "telephone": "+36303806728",
-            "url": "https://www.oazisvendeglo.hu",
-            "menu": "https://www.oazisvendeglo.hu/etlap",
-            "servesCuisine": "Pizza, Rántott hús, Sertés, Szárnyas, Hamburger, Gyros, Desszertek, Főételek"
-          })}
-  </script>
-          {/* Additional meta tags */}
         </Head>
         <main className={indieFlower.className}>
             <Layout>

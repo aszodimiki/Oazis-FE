@@ -17,9 +17,46 @@ interface HomePageDatas {
 }  
 
 export default function HomePage({carousels, gridBlocks}: HomePageDatas) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Oázis Vendéglő",
+    "url": "https://oazisvendeglo.hu",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Kossuth Lajos út 78.",
+      "addressLocality": "Tápiószentmárton",
+      "postalCode": "2711",
+      "addressCountry": "HU"
+    },
+    "menu": "https://oazisvendeglo.hu/etlap",
+    "servesCuisine": ["Sültek", "Hamburgerek", "Pizzák", "Gyros", "Levesek"],
+    "telephone": "+36-30-380-6728"
+  }
   
   return (
-    <Home carouselModels={carousels} gridBlocks={gridBlocks} />
+    <>
+     <Head>
+     <meta name="description" content="Látogasson el az Oázis Vendéglőbe Tápiószentmártonban, ahol finom sültek, hamburgerek, pizzák, gyros és levesek várják Önt. Cím: 2711, Tápiószentmárton Kossuth Lajos út 78." />
+        <meta name="keywords" content="Oázis, Oázis Büfé, Oázis étterem, Oázis vendéglő, Oázis pizzéria, pizzéria, Tápiószentmárton étterem, Tápiószentmárton büfé, sültek, hamburgerek, pizzák, gyros, levesek" />
+        <meta name="author" content="Oázis Vendéglő" />
+        <link rel="canonical" href="https://oazisvendeglo.hu/" />
+        <meta property="og:title" content="Oázis Vendéglő - Tápiószentmárton Étterem és Büfé" />
+        <meta property="og:description" content="Látogasson el az Oázis Vendéglőbe Tápiószentmártonban, ahol finom sültek, hamburgerek, pizzák, gyros és levesek várják Önt. Cím: 2711, Tápiószentmárton Kossuth Lajos út 78." />
+        <meta property="og:image" content="../public/oazis-background.png" />
+        <meta property="og:url" content="https://oazisvendeglo.hu/" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Oázis Vendéglő - Tápiószentmárton Étterem és Büfé" />
+        <meta name="twitter:description" content="Látogasson el az Oázis Vendéglőbe Tápiószentmártonban, ahol finom sültek, hamburgerek, pizzák, gyros és levesek várják Önt. Cím: 2711, Tápiószentmárton Kossuth Lajos út 78." />
+        <meta name="twitter:image" content="../public/oazis-background.png" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+      </Head>
+        <Home carouselModels={carousels} gridBlocks={gridBlocks} />
+    </>
+    
   );
 }
 

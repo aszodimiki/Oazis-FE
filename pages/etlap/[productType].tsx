@@ -1,36 +1,40 @@
 import Product from "@/components/products/product/Product";
 import Loader from "@/components/ui/Loader";
 import { getProductsByType } from "@/helpers/api-utils";
+import { log } from "console";
 import { GetServerSideProps } from 'next'
 import Head from "next/head";
 import { useEffect, useState } from "react";
 
 interface PropductProps {
     products: Product[];
+    productType: string;
   }
 
-function ProductType({products}: PropductProps){
+function ProductType({products, productType }: PropductProps){
     const [data, setData] =useState<Product[]>();
-
-    useEffect(()=> {
+    
+    useEffect(()=> {        
         setData(products)
     },[products])
 
     return(
         <>
             <Head>
-                <title>{products.join(", ")}</title>
-                <meta
-                    name="description"
-                    content="Oazis Vendéglő és Pizzéria, ahol a finom ételek és a kellemes környezet találkozik."
-                />
-                 <meta name="keywords" content="oázis vendéglő, oázis büfé, étterem, étlap, itallap, galéria, információk, pizza, rántott hús, sertés, szárnyas, hamburger, gyros, desszertek, főételek" />
-                <meta property="og:title" content="Oázis Vendéglő és Pizzéria" />
-                <meta property="og:description" content="Magyaros ízek, hamburgerek, sültek, pizzák, gyros" />
-                <meta property="og:type" content="website" />
-                <meta property="og:url" content='https://oazisvendeglo.hu/menu' />
+                <title>{`Oázis Vendéglő - ${productType.charAt(0).toUpperCase() + productType.slice(1)}`}</title>
+                <meta name="description" content={`Próbálja ki az Oázis Vendéglő ${productType}-t Tápiószentmártonban. Finom és ízletes ételek várják Önt!`} />
+                <meta name="keywords" content={`Oázis, Oázis Büfé, Oázis étterem, Oázis vendéglő, Oázis pizzéria, ${productType}, étel, Tápiószentmárton étterem`} />
+                <link rel="canonical" href={`https://oazisvendeglo.hu/etlap/${productType}`} />
+                <meta property="og:title" content={`Oázis Vendéglő - ${productType.charAt(0).toUpperCase() + productType.slice(1)}`} />
+                <meta property="og:description" content={`Próbálja ki az Oázis Vendéglő ${productType}-t Tápiószentmártonban. Finom és ízletes ételek várják Önt!`} />
+                <meta property="og:image" content="../../public/oazis-background.png" />
+                <meta property="og:url" content={`https://oazisvendeglo.hu/etlap/${productType}`} />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content={`Oázis Vendéglő - ${productType.charAt(0).toUpperCase() + productType.slice(1)}`} />
+                <meta name="twitter:description" content={`Próbálja ki az Oázis Vendéglő ${productType}-t Tápiószentmártonban. Finom és ízletes ételek várják Önt!`} />
+                <meta name="twitter:image" content="../../public/oazis-background.png" />
             </Head>
-        {data?<Product key={products.length} products={products}/>: <Loader/> }
+            {data?<Product key={products.length} products={products}/>: <Loader/> }
         </>
     );
 }
@@ -38,10 +42,10 @@ function ProductType({products}: PropductProps){
 export const getServerSideProps: GetServerSideProps= async (context) => {
     const {params} = context;
     const productType = params?.productType as string;
-    const result = await getProductsByType(productType);
+    const products = await getProductsByType(productType);
     
     return {
-        props: { products: result },
+        props: { products, productType},
       }
 }
 

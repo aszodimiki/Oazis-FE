@@ -1,5 +1,6 @@
 import Card from '@/components/ui/Card';
 import classes from './PizzaList.module.css';
+import React from 'react';
 
 function PizzaList({products}:{products: Product[]}) {
 
@@ -9,7 +10,7 @@ function PizzaList({products}:{products: Product[]}) {
           <div style={{ fontWeight: 'bold', textAlign: 'center' }}>26cm</div>
           <div style={{ fontWeight: 'bold', textAlign: 'center' }}>32cm</div>
           {products.map((pizza, index) => (
-            <>
+            <React.Fragment key={index}>
               <div>
                 <div>{pizza.productName}</div>
                 {pizza.ingredients && pizza.ingredients.length > 0 &&
@@ -19,7 +20,7 @@ function PizzaList({products}:{products: Product[]}) {
               </div>
               <div className={classes.price}>{pizza.price} Ft</div>
               <div className={classes.price}>{pizza.secondPrice} Ft</div>
-            </>
+              </React.Fragment>
           ))}
         </div>
       );

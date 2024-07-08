@@ -28,7 +28,8 @@ function InformationPage({informations}: InformationsProps){
                 <meta property="og:title" content="Oázis Vendéglő és Pizzéria" />
                 <meta property="og:description" content="Magyaros ízek, hamburgerek, sültek, pizzák, gyros" />
                 <meta property="og:type" content="website" />
-                <meta property="og:url" content='https://oazisvendeglo.hu/menu' />
+                <meta property="og:url" content='https://oazisvendeglo.hu/informaciok' />
+                <link rel="canonical" href="https://oazisvendeglo.hu/informaciok" />
             </Head>
         {data?<InformationsComponent informations={informations}/>: <Loader/> }
         </>
