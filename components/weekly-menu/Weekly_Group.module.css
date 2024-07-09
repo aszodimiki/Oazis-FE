@@ -9,4 +9,5 @@
 .weekyl_date{
     text-align: center;
     color: var(--white);
+    font-size: 1.3rem;
 }

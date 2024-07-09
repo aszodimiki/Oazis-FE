@@ -74,9 +74,18 @@ export default function Carousel({carouselModels}:{carouselModels: CarouselModel
                 <button className={`${classes.prev} ${classes.button}`} onClick={() => setIndex(count => loop(count-1))}></button>
                 <button className={`${classes.next} ${classes.button}`} onClick={() => setIndex(count => loop(count+1))}></button>
                 <div className={`${classes.text}`}>
-                    <div className={`${classes.decoded}`} ref={decodedRef} dangerouslySetInnerHTML={{ __html: decodeHtml(carousels[index].text) }} />
-                    {isScrollable && <div className={classes.scrollIndicator}>&#x25BC;</div>}
-                </div>
+                <div
+            className={`${classes.decoded}`}
+            ref={decodedRef}
+          >
+            <div
+              className="decoded-content"
+              dangerouslySetInnerHTML={{ __html: decodeHtml(carousels[index].text) }}
+            />
+          </div>
+          {isScrollable && <div className={classes.scrollIndicator}>&#x25BC;</div>}
+
+            </div>
             </div>
         </div>
     );

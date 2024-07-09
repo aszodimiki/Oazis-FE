@@ -1,30 +1,5 @@
-/* .box {
-    height: 170px;
-    border: solid 1px #000;
-    font-weight: 800;
-    border-radius: 10px;
-    -webkit-column-break-inside: avoid;
-    page-break-inside: avoid;
-    break-inside: avoid;
-    margin-bottom: 1em;
-    width: 300px;
- } */
- 
-
  .box {
-  /* height: 170px;
-  border: solid 1px #000;
-  font-weight: 800;
-  border-radius: 10px;
-  margin-bottom: 1em;
-  width: 300px;
-  -webkit-column-break-inside: avoid;
-  page-break-inside: avoid;
-  break-inside: avoid;
-
-  position: relative; */
-
-  height: 170px;
+  height: 190px;
   border: solid 1px var(--white);
   font-weight: 800;
   border-radius: 10px;
@@ -35,17 +10,10 @@
   break-inside: avoid;
   margin: 10px;
   color: var(--white);
+  overflow: hidden;
  }
 
- /* .box::before{
-  content: "";
-  display: block;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
- } */
+
 
  .box::after{
   /* content: "";
@@ -63,6 +31,7 @@
   padding-left: 10px;
   text-align: center;
   margin-bottom: 15px;
+  font-size: 1.3rem;
  }
 
 .box .food{
@@ -72,13 +41,8 @@
   padding-left: 10px;
 }
 
-/* @media screen and (max-width: 1024px) {
-  .box {
-      margin-bottom: 10px;
-  }
-} */
-
 .decoded {
   overflow-wrap: break-word;
   padding-left: 30px;
+  font-size: 1.3rem;
 }
