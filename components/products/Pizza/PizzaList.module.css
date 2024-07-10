@@ -29,7 +29,7 @@
     align-items: center;
     align-self: flex-start;
     text-align: center;
-    min-width: 70px;
+    min-width: 75px;
   }
 
 .ingredients_container{
@@ -50,7 +50,7 @@
 }
 
 .ingredients_container .ingredient:not(:first-child){
-    margin: 0 5px;
+    margin: 0 0px;
 }
 
 .ingredients_container .ingredient:last-child{
@@ -60,4 +60,5 @@
 .ingredients_container .ingredient:not(:last-child)::after {
     content: ' |'; 
     margin-left: 5px;
+    margin-right: 5px;
 }
