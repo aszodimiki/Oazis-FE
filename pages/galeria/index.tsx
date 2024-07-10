@@ -27,7 +27,7 @@ function GaleriaPage({pictures}:{pictures: GaleryPicture[]}){
     );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     
     const pictures = await getGaleryPictures();
     

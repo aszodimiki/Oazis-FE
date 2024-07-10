@@ -30,6 +30,7 @@ export default function App({ Component, pageProps }: AppProps, {footerTexts}:{f
           <meta property="og:description" content="Magyaros ízek, hamburgerek, sültek, pizzák, gyros" />
           <meta property="og:type" content="website" />
           <meta property="og:url" content="https://oazisvendeglo.hu" />
+          <link rel="icon" href="/favicon.ico" sizes="any" />
         </Head>
         <main className={nunito.className}>
             <Layout>
