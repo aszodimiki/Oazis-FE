@@ -12,7 +12,7 @@ function PizzaList({products}:{products: Product[]}) {
           {products.map((pizza, index) => (
             <React.Fragment key={index}>
               <div>
-                <div>{pizza.productName}</div>
+                <div className={classes.name}>{pizza.productName}</div>
                 {pizza.ingredients && pizza.ingredients.length > 0 &&
                 <div className={classes.ingredients_container}>
                     {pizza.ingredients.map((item, i) => <div key={i} className={classes.ingredient}>{item}</div>)}

@@ -10,11 +10,16 @@
   }
 
   .header {
-    font-weight: bold;
+    font-weight: 700;
+  }
+
+  .name {
+    font-weight: 700;
+    font-size: 1.3rem;
   }
   
   .headerRight {
-    font-weight: bold;
+    font-weight: 700;
     text-align: right;
   }
   
@@ -35,13 +40,13 @@
 }
 
 .ingredients_container .ingredient{
-    font-weight: 800;
-    font-size: 14px;
+  font-weight: 700;
+  font-size: 14px;
 }
 
 .ingredients_container .ingredient:first-child{
-    margin-right: 5px;
-    content: ' |'; 
+  margin-right: 5px;
+  content: ' |'; 
 }
 
 .ingredients_container .ingredient:not(:first-child){

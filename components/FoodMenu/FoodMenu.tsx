@@ -4,10 +4,10 @@ import Loader from "../ui/Loader";
 import classes from './FoodMenu.module.css';
 import { getProductsByType } from "@/helpers/api-utils";
 import PizzaList from "../products/Pizza/PizzaList";
-import { Indie_Flower } from '@next/font/google';
+import { Nunito } from '@next/font/google';
 
-const indieFlower = Indie_Flower({
-  weight: '400',
+const nunito = Nunito({
+  weight: ['400', '700'],
   subsets: ['latin'],
 });
 
@@ -41,7 +41,7 @@ function FoodMenu({productTypes, products, initialCategory}:{productTypes: Produ
         {productTypes.map((productType) => (
           <button
             key={productType.typeName}
-            className={`${classes.category_button} ${indieFlower.className} ${selectedCategory === productType.typeName ? classes.active : ''}`}
+            className={`${classes.category_button} ${nunito.className} ${selectedCategory === productType.typeName ? classes.active : ''}`}
             onClick={() => setSelectedCategory(productType.typeName)
             }
           >

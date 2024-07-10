@@ -37,7 +37,7 @@ export default function HomePage({carousels, gridBlocks}: HomePageDatas) {
   return (
     <>
      <Head>
-     <meta name="description" content="Látogasson el az Oázis Vendéglőbe Tápiószentmártonban, ahol finom sültek, hamburgerek, pizzák, gyros és levesek várják Önt. Cím: 2711, Tápiószentmárton Kossuth Lajos út 78." />
+     <meta name="description" content="Oázis Vendéglő Tápiószentmárton,finom sültek, hamburgerek, pizzák, gyros, levesek várják Önt. Cím: 2711, Tápiószentmárton Kossuth Lajos út 78." />
         <meta name="keywords" content="Oázis, Oázis Büfé, Oázis étterem, Oázis vendéglő, Oázis pizzéria, pizzéria, Tápiószentmárton étterem, Tápiószentmárton büfé, sültek, hamburgerek, pizzák, gyros, levesek" />
         <meta name="author" content="Oázis Vendéglő" />
         <link rel="canonical" href="https://oazisvendeglo.hu/" />

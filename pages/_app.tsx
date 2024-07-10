@@ -4,15 +4,15 @@ import { FooterTexts } from '@/components/layout/TextModels';
 import { getFooterTexts } from '@/helpers/api-utils';
 import '@/styles/globals.css';
 import type { AppProps } from 'next/app'
-import { Indie_Flower } from '@next/font/google';
+import { Nunito  } from '@next/font/google';
 import Head from "next/head";
 
 interface Datas {
   footerTexts: FooterTexts;
 }  
 
-const indieFlower = Indie_Flower({
-  weight: '400',
+const nunito = Nunito({
+  weight: ['400', '700'],
   subsets: ['latin'],
 });
 
@@ -31,7 +31,7 @@ export default function App({ Component, pageProps }: AppProps, {footerTexts}:{f
           <meta property="og:type" content="website" />
           <meta property="og:url" content="https://oazisvendeglo.hu" />
         </Head>
-        <main className={indieFlower.className}>
+        <main className={nunito.className}>
             <Layout>
               <ErrorBoundary>
                 <Component footerTexts={footerTexts} {...pageProps} />

@@ -20,12 +20,14 @@
 
 .nav_title{
 	font-size: 1.3rem;
+	font-weight: 700;
 	color: var(--white);
 	text-decoration: none;
 }
 
 .nav_a {
 	font-size: 1.3rem;
+	font-weight: 700;
 	margin: 0 1rem;
 	color: var(--white);
 	text-decoration: none;

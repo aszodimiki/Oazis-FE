@@ -3,10 +3,10 @@ import Loader from "../ui/Loader";
 import classes from './DrinkMenu.module.css';
 import { getDrinksByType } from "@/helpers/api-utils";
 import Drink from "../products/drink/Drink";
-import { Indie_Flower } from '@next/font/google';
+import { Nunito } from '@next/font/google';
 
-const indieFlower = Indie_Flower({
-  weight: '400',
+const nunito = Nunito({
+  weight: ['400', '700'],
   subsets: ['latin'],
 });
 
@@ -42,7 +42,7 @@ function DrinkMenu({drinkTypes, drinks, initialCategory}:{drinkTypes: DrinkType[
         {drinkTypes?.map((drinkType) => (
           <button
             key={drinkType.typeName}
-            className={`${classes.category_button} ${indieFlower.className} ${selectedCategory === drinkType.typeName ? classes.active : ''}`}
+            className={`${classes.category_button} ${nunito.className} ${selectedCategory === drinkType.typeName ? classes.active : ''}`}
             onClick={() => setSelectedCategory(drinkType.typeName)
             }
           >
