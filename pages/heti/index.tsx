@@ -25,7 +25,7 @@ function Weekly({weeklyMenu, weeklyMenuTexts}: WeeklyItems){
                 <meta property="og:url" content='https://oazisvendeglo.hu/heti' />
                 <link rel="canonical" href="https://oazisvendeglo.hu/heti" />
             </Head>
-            <Weekly_Menu key={weeklyMenu.weeklyGroups.length} weeklyMenu={weeklyMenu} gridBlocks={weeklyMenuTexts}/>
+            <Weekly_Menu key={weeklyMenu?.weeklyGroups?.length} weeklyMenu={weeklyMenu} gridBlocks={weeklyMenuTexts}/>
         </>
 
     )
