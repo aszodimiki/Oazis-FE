@@ -10,7 +10,7 @@ const Picture = ({picture}:{picture: GaleryPicture}) =>{
     
     return(
         <li className={classes.item} onClick={() => setDisplay(!display)}>
-            <Image className={classes.galeria_image} src={baseUrl+picture?.imageUrl} fill={true} sizes='250' alt={picture.title} loading='lazy'/>
+            <Image className={classes.galeria_image} src={baseUrl+picture?.imageUrl} fill={true} sizes='250' alt={picture.title} priority/>
             <div className={`${display ? classes.fullpage : ''}`} style={{ backgroundImage:`url(${baseUrl+picture.imageUrl})`, display: display ? "block" : "none"}}></div>
         </li>
         
