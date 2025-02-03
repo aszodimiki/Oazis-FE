@@ -5,7 +5,12 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: '**.oazisvendeglo.hu',
+        hostname: 'oazisvendeglo.hu',
+        pathname: '/media/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.oazisvendeglo.hu',
         pathname: '/media/**',
       },
       {
