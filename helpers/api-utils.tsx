@@ -5,7 +5,7 @@ import { Informations } from "@/components/informations/InformationModels";
 import { FooterTexts } from "@/components/layout/TextModels";
 import { DailyMenu, WeeklyMenu } from "@/components/weekly-menu/WeekylMenu";
 
-const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL
 
 export async function getProductTypes(){
     try {
@@ -98,7 +98,7 @@ export async function getCarousels(){
 export async function getGaleryPictures(){
     try {
         const res = await fetch(`${baseUrl}/api/galery/images`);
-    
+        console.log("GET FROM Umbraco API   :    "+`${baseUrl}/api/galery/images`);
         const data: GaleryPicture[] = await res.json();        
         return data;
     } catch (error) {

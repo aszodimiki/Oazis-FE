@@ -1,24 +1,25 @@
 /** @type {import('next').NextConfig} */
-const path = require('path')
-
 const nextConfig = {
-  reactStrictMode: true,
-  sassOptions: {
-    includePaths: [path.join(__dirname, 'styles')],
-  },
   images: {
+    domains: ['localhost', '127.0.0.1', 'oazisvendeglo.hu', 'www.oazisvendeglo.hu'],
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'localhost',
-        port: '44370'
+        hostname: '**.oazisvendeglo.hu',
+        pathname: '/media/**',
       },
       {
-        protocol: 'https',
-        hostname: 'oazisvendeglo.hu',
-      }
+        protocol: 'http',
+        hostname: 'localhost',
+        pathname: '/media/**',
+      },
+      {
+        protocol: 'http',
+        hostname: '127.0.0.1',
+        pathname: '/media/**',
+      },
     ],
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

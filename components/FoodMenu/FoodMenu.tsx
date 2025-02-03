@@ -38,7 +38,7 @@ function FoodMenu({productTypes, products, initialCategory}:{productTypes: Produ
   return (
     <div className={classes.food_container}>
       <div className={classes.menu_categories}>
-        {productTypes.map((productType) => (
+        {productTypes?.map((productType) => (
           <button
             key={productType.typeName}
             className={`${classes.category_button} ${nunito.className} ${selectedCategory === productType.typeName ? classes.active : ''}`}

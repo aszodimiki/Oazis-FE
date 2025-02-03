@@ -40,6 +40,7 @@ export async function getServerSideProps() {
   const productTypes = await getProductTypes();
   
   const prodictType = productTypes ? productTypes[0].typeName : '';
+  
   const products = await getProductsByType(prodictType);
   return {
       props: { productTypes, products, initialCategory: prodictType},
