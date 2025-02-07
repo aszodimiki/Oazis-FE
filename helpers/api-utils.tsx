@@ -98,7 +98,6 @@ export async function getCarousels(){
 export async function getGaleryPictures(){
     try {
         const res = await fetch(`${baseUrl}/api/galery/images`);
-        console.log("GET FROM Umbraco API   :    "+`${baseUrl}/api/galery/images`);
         const data: GaleryPicture[] = await res.json();        
         return data;
     } catch (error) {
