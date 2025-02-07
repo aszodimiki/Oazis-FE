@@ -1,9 +1,7 @@
 import Image from 'next/image'
 import { useState } from "react";
-
 import classes from './Picture.module.css';
 import { GaleryPicture } from './PictureModel';
-import { log } from 'console';
 
 const Picture = ({picture}:{picture: GaleryPicture}) =>{
     const [display, setDisplay] = useState(false);
@@ -16,9 +14,10 @@ const Picture = ({picture}:{picture: GaleryPicture}) =>{
     return(
         <li className={classes.item} onClick={() => setDisplay(!display)}>
             <Image className={classes.galeria_image} loader={imageLoader} src={baseUrl+picture?.imageUrl} fill={true} sizes='250' alt={picture.title} priority/>
-            <div className={`${display ? classes.fullpage : ''}`} style={{ backgroundImage:`url(${baseUrl+picture?.imageUrl})`, display: display ? "block" : "none"}}></div>
+            <div className={`${display ? classes.fullpage_container : ''}`} style={{ display: display ? "block" : "none"}}>
+                <div className={`${display ? classes.fullpage_image : ''}`} style={{ backgroundImage:`url(${baseUrl+picture?.imageUrl})`, display: display ? "block" : "none"}}></div>
+            </div>
         </li>
-        
     );
 }
 
