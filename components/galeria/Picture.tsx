@@ -2,9 +2,13 @@ import Image from 'next/image'
 import { useState } from "react";
 import classes from './Picture.module.css';
 import { GaleryPicture } from './PictureModel';
+  
+  interface PictureProps {
+    picture: GaleryPicture;
+    onClick: () => void;
+  }
 
-const Picture = ({picture}:{picture: GaleryPicture}) =>{
-    const [display, setDisplay] = useState(false);
+const Picture = ({ picture, onClick }: PictureProps) =>{
     const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
     
     const imageLoader = ({ src, width, quality }: { src: string; width: number; quality?: number }) => {
@@ -12,11 +16,8 @@ const Picture = ({picture}:{picture: GaleryPicture}) =>{
       }
 
     return(
-        <li className={classes.item} onClick={() => setDisplay(!display)}>
+        <li className={classes.item} onClick={onClick}>
             <Image className={classes.galeria_image} loader={imageLoader} src={baseUrl+picture?.imageUrl} fill={true} sizes='250' alt={picture.title} priority/>
-            <div className={`${display ? classes.fullpage_container : ''}`} style={{ display: display ? "block" : "none"}}>
-                <div className={`${display ? classes.fullpage_image : ''}`} style={{ backgroundImage:`url(${baseUrl+picture?.imageUrl})`, display: display ? "block" : "none"}}></div>
-            </div>
         </li>
     );
 }

@@ -1,7 +1,17 @@
 .base{
-    width: 100%;
-    bottom: 0;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.layoutContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main {
+  flex: 1;
+  overflow: auto;
 }
 
 .background {
@@ -28,13 +38,15 @@
   }
 
 .container {
+  flex: 1;
+  overflow: none;
   padding-top: 6rem;
   margin-bottom: 0rem;
   margin-right: auto;
   margin-left: auto;
   width: 80%;
   max-width: 90rem;
-  height: 100vh;
-  z-index: 2;
+  height: 80vh;
+  z-index: 9999;
   position: relative;
 }
