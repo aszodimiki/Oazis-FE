@@ -7,8 +7,7 @@
 	padding: 0 2rem;
 	background-color: var(--grey);
 	color: var(--textColor);
-	position: fixed;
-	z-index: 10;
+	z-index: 3;
 	background-color: transparent; 
 	transition: all 0.1s ease-in-out;
 }
@@ -16,6 +15,7 @@
 .scrolled {
 	height: 90px;
 	background-color: rgba(0, 0, 0);
+	
   }
 
 .nav_title{
@@ -56,6 +56,9 @@
 }
 
 @media only screen and (max-width: 1024px) {
+	.container{
+		z-index: 4;
+	}
 	.container_nav_btn {
 		visibility: visible;
 		opacity: 1;
@@ -79,6 +82,7 @@
 
 	.container_responsive {
 		transform: none;
+		z-index: 4;
 	}
 
 	.nav_nav_close_btn {
