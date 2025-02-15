@@ -16,6 +16,7 @@ const mainRef = useRef<HTMLDivElement | null>(null);
             <div className={classes.background}></div>
             <MainNavigation target={mainRef}/>
             <main className={classes.container}>{children}</main>
+            <Footer/>
         </div>
     );
 }

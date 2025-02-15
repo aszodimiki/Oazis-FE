@@ -8,3 +8,42 @@
     margin: 0 auto;
     padding-top: 40px;
 }
+
+.gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .pictureWrapper {
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .pictureWrapper:hover {
+    transform: scale(1.05);
+  }
+  
+  .image {
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  .fullscreen_image{
+    padding-top: 6%;
+    padding-bottom: 6%;
+    object-fit: contain;
+  }
