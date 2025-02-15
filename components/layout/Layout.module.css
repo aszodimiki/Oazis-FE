@@ -40,13 +40,12 @@
 .container {
   flex: 1;
   overflow: none;
-  padding-top: 6rem;
   margin-bottom: 0rem;
   margin-right: auto;
   margin-left: auto;
   width: 80%;
   max-width: 90rem;
   height: 80vh;
-  z-index: 9999;
+  z-index: 3;
   position: relative;
 }
